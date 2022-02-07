@@ -23,6 +23,7 @@ MORSE_CODE_DICT = { 'A':'.-',       'B':'-...',         'C':'-.-.',     'D':'-..
                     '(':'-.--.', ')':'-.--.-'
                     }
  
+### Inputs must be all of then on Capital words
 
 ################################################## MAIN ##################################################
 
@@ -58,7 +59,9 @@ def TexttoMorse():
     
     print()
     
-    text = input(Fore.WHITE + " Enter Text " + Fore.RED + ">> " + Fore.CYAN)
+    text = input(Fore.RED + " [TEXT] " + Fore.LIGHTYELLOW_EX)
+    
+    print()
     
     cipher = ''
     
@@ -69,7 +72,16 @@ def TexttoMorse():
         else:
             cipher += ' '
             
-    print(Fore.WHITE + " Morse Code " + Fore.GREEN + ">> " + Fore.GREEN + cipher)
+    print(Fore.GREEN + " [MORSE] " + Fore.LIGHTCYAN_EX + cipher)
+    
+    print()
+    
+    print(Fore.WHITE + " Back to Main ? (y/n) ")
+    answer = input(Fore.RED + " >> ")
+    if answer == 'y' or answer == 'Y':
+        main()
+    else:
+        pass
     
 ################################################## MORSE to TEXT ##################################################
 
@@ -78,7 +90,9 @@ def MorsetoText():
     
     print()
     
-    morse = input(Fore.WHITE + " Enter Morse " + Fore.RED + ">> " + Fore.CYAN)
+    morse = input(Fore.RED + " [MORSE] " + Fore.LIGHTYELLOW_EX)
+    
+    print()
     
     morse += ' '
     decipher = ''
@@ -98,7 +112,16 @@ def MorsetoText():
                 decipher += list( MORSE_CODE_DICT.keys() )[list( MORSE_CODE_DICT.values() ).index(citext)]
                 citext = ''
       
-    print(Fore.WHITE + " Text " + Fore.GREEN + ">> " + decipher)
+    print(Fore.GREEN + " [TEXT] " + Fore.LIGHTCYAN_EX + decipher)
+    
+    print()
+    
+    print(Fore.WHITE + " Back to Main ? (y/n) ")
+    answer = input(Fore.RED + " >> ")
+    if answer == 'y' or answer == 'Y':
+        main()
+    else:
+        pass
       
 ################################################## BODY ##################################################
 
