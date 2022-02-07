@@ -23,8 +23,6 @@ MORSE_CODE_DICT = { 'A':'.-',       'B':'-...',         'C':'-.-.',     'D':'-..
                     '(':'-.--.', ')':'-.--.-'
                     }
  
-### Inputs must be all of then on Capital words
-
 ################################################## MAIN ##################################################
 
 def main():
@@ -61,6 +59,8 @@ def TexttoMorse():
     
     text = input(Fore.RED + " [TEXT] " + Fore.LIGHTYELLOW_EX)
     
+    text = text.upper()
+    
     print()
     
     cipher = ''
@@ -91,6 +91,8 @@ def MorsetoText():
     print()
     
     morse = input(Fore.RED + " [MORSE] " + Fore.LIGHTYELLOW_EX)
+    
+    morse = morse.upper()
     
     print()
     
