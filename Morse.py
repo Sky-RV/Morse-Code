@@ -73,7 +73,33 @@ def TexttoMorse():
     
 ################################################## MORSE to TEXT ##################################################
 
-
+def MorsetoText():
+    system('cls')
+    
+    print()
+    
+    morse = input(Fore.WHITE + " Enter Morse " + Fore.RED + ">> " + Fore.CYAN)
+    
+    morse += ' '
+    decipher = ''
+    citext = ''
+    
+    for i in morse:
+        if i != ' ':
+            j = 0
+            citext += i
+            
+        else:
+            j += 1
+            
+            if j == 2:
+                decipher += ' '
+            else:
+                decipher += list( MORSE_CODE_DICT.keys() )[list( MORSE_CODE_DICT.values() ).index(citext)]
+                citext = ''
+      
+    print(Fore.WHITE + " Text " + Fore.GREEN + ">> " + decipher)
+      
 ################################################## BODY ##################################################
 
 main()
