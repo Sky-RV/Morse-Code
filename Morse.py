@@ -1,9 +1,12 @@
 import imp
+import re
 import sys
 import colorama
 from os import system
 from colorama import Fore, Style, init
 from pyfiglet import Figlet
+from winsound import Beep
+from time import sleep
 
 MORSE_CODE_DICT = { 'A':'.-',       'B':'-...',         'C':'-.-.',     'D':'-..', 
                     'E':'.',        'F':'..-.',         'G':'--.',      'H':'....',
@@ -48,6 +51,24 @@ def main():
         MorsetoText()
     else:
         pass
+    
+################################################## SOUND ##################################################
+
+def PlaySound(Morse):
+    
+    for i in Morse:
+        
+        if i == '.':
+            Beep(800, 100)
+        
+        elif i == '-':
+            Beep(800, 300)
+        
+        elif i == ' ':
+            sleep(1/2)
+            return(" ")
+    
+    return Morse + " "
 
 ################################################## TEXT to MORSE ##################################################
 
@@ -71,8 +92,13 @@ def TexttoMorse():
         
         else:
             cipher += ' '
-            
+       
+         
     print(Fore.GREEN + " [MORSE] " + Fore.LIGHTCYAN_EX + cipher)
+    
+    for j in text:
+        cipher += PlaySound(MORSE_CODE_DICT[j])
+        sleep(100/3000)
     
     print()
     
@@ -99,6 +125,7 @@ def MorsetoText():
     morse += ' '
     decipher = ''
     citext = ''
+    cipher = ''
     
     for i in morse:
         if i != ' ':
@@ -113,6 +140,11 @@ def MorsetoText():
             else:
                 decipher += list( MORSE_CODE_DICT.keys() )[list( MORSE_CODE_DICT.values() ).index(citext)]
                 citext = ''
+      
+
+    for j in decipher:
+        cipher += PlaySound(MORSE_CODE_DICT[j])
+        sleep(100/3000)
       
     print(Fore.GREEN + " [TEXT] " + Fore.LIGHTCYAN_EX + decipher)
     
