@@ -84,7 +84,7 @@ def TexttoMorse():
     
     print()
     
-    cipher = ''
+    cipher = ""
     
     for i in text:
         if i != ' ':
